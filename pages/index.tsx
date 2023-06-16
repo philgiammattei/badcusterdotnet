@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { generateRSS } from "../rssUtil";
-import { loadBlogPosts } from "../loader";
+import { loadBlogPosts, loadMarkdownFile } from "../loader";
 import Link from "next/link";
+import { Markdown } from "../components/Markdown";
 
-const Home = () => {
+const Home = (props: { leestavall: string }) => {
   return (
     <div className="content">
       <Head>
@@ -38,11 +39,7 @@ const Home = () => {
 
       <div className="section">
         <main>
-          <h2>Bad Custer</h2>
-          <p>We're a band. But we're so much more than a band.  We're kidding. We're just a band.</p>
-          <p>Check us out on <Link href="https://www.instagram.com/therealbadcuster/">Instagram</Link></p>
-          <p>Listen to our music on <Link href="https://open.spotify.com/artist/4DZ8fKIQM5cpAVAQy3zs9L">Spotify</Link> or <Link href="https://itunes.apple.com/us/artist/bad-custer/1304505923">Apple Music</Link> or <Link href="https://badcuster.bandcamp.com/">Bandcamp</Link>.</p>
-          <p>Send us an <Link href="mailto:badcuster@gmail.com">email</Link> if you want.</p>
+          <Markdown source={props.leestavall} />
         </main>
       </div>
     </div>
@@ -52,6 +49,7 @@ const Home = () => {
 export default Home;
 
 export const getStaticProps = async () => {
+  const leestavall = await loadMarkdownFile('leestavall.md')
   const readmeFile = await import(`../${"README.md"}`);
   const readme = readmeFile.default;
   const posts = await loadBlogPosts();
@@ -60,6 +58,7 @@ export const getStaticProps = async () => {
   await generateRSS(posts);
 
   const props = {
+    leestavall: leestavall.contents,
     readme: readme,
     posts,
   };
