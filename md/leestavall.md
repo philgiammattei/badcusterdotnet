@@ -2,7 +2,7 @@
 
 ## _A UNIQUE, ONE-TIME-ONLY BUSINESS OPPORTUNITY AWAITS YOUR ATTENTION_
 
-## *In August, BAD CUSTER will go to [Leesta Vall Records](https://leestavall.com) in Brooklyn.  That's in NEW Y0RK CITY.  We are bringing ***ALL OF OUR MUSIC STUFF.***
+## In August, BAD CUSTER will go to [Leesta Vall Records](https://leestavall.com) in Brooklyn.  That's in NEW Y0RK CITY.  We are bringing ***ALL OF OUR MUSIC STUFF.***
 
 ## There, we will play songs and the songs will get recorded. **BUT! NOT ON COMPUTER!**
 

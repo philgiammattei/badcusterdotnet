@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { generateRSS } from "../rssUtil";
 import { loadBlogPosts, loadMarkdownFile } from "../loader";
-import Link from "next/link";
 import { Markdown } from "../components/Markdown";
 
 const Home = (props: { leestavall: string }) => {
