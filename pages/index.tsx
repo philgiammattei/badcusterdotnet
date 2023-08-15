@@ -1,9 +1,8 @@
 import Head from "next/head";
 import { generateRSS } from "../rssUtil";
-import { loadBlogPosts, loadMarkdownFile } from "../loader";
-import { Markdown } from "../components/Markdown";
+import { loadBlogPosts } from "../loader";
 
-const Home = (props: { leestavall: string }) => {
+const Home = () => {
   return (
     <div className="content">
       <Head>
@@ -38,7 +37,7 @@ const Home = (props: { leestavall: string }) => {
 
       <div className="section">
         <main>
-          <Markdown source={props.leestavall} />
+          <h1>Bad Custer</h1>
         </main>
       </div>
     </div>
@@ -48,7 +47,6 @@ const Home = (props: { leestavall: string }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const leestavall = await loadMarkdownFile('leestavall.md')
   const readmeFile = await import(`../${"README.md"}`);
   const readme = readmeFile.default;
   const posts = await loadBlogPosts();
@@ -57,7 +55,6 @@ export const getStaticProps = async () => {
   await generateRSS(posts);
 
   const props = {
-    leestavall: leestavall.contents,
     readme: readme,
     posts,
   };
